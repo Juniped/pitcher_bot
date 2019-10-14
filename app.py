@@ -50,7 +50,7 @@ async def on_message(message):
                     current_info[message.author.id]['plist'] = selected['plist']
 
                     await message.channel.send(
-                        f"{message.author.name}\nLast Pitches:\n" + "\n".join([p for p in selected['plist']]) 
+                        f"{message.author}\nLast Pitches:\n" + "\n".join([p for p in selected['plist']]) 
                     )
                     current_info[message.author.id]['awaiting_guess'] = True
             elif content.startswith("swing"):
@@ -64,12 +64,12 @@ async def on_message(message):
                     diff = abs(pitch_int - guess_int)
                     if abs(diff) > 500:
                         diff = 1000 - abs(diff)
-                    await message.channel.send(f"{message.author.name}\nSwing: {guess}\nPitch: {pitch}\nDifference:{diff}")
+                    await message.channel.send(f"{message.author}\nSwing: {guess}\nPitch: {pitch}\nDifference:{diff}")
                     current_info[message.author.id]['awaiting_guess'] = False
                     current_info[message.author.id]['last_pitch'] = ""
                     current_info[message.author.id]['plist'] = []
                 else:
-                    await message.channel.send(f"{message.author.name}\nNot currently waiting for you to guess, please use .pitch to start the process")
+                    await message.channel.send(f"{message.author}\nNot currently waiting for you to guess, please use .pitch to start the process")
             elif content.startswith("help"):
                 string = (
                     f".help Generates this help message"
