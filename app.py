@@ -104,4 +104,5 @@ def select_pitches(pitches):
     last_pitch = game_list[start_value + 6]
     return {'plist':plist, 'last_pitch':last_pitch}
         
+print("Starting Application")
 client.run(token)
