@@ -70,7 +70,7 @@ async def on_message(message):
                     current_info[message.author.id]['plist'] = []
                 else:
                     await message.channel.send(f"{message.author.name}\nNot currently waiting for you to guess, please use .pitch to start the process")
-            elif content.startswith("help")
+            elif content.startswith("help"):
                 string = (
                     f".help Generates this help message"
                     f".pitcher <pitcher name> sets the current pitcher you are hitting against"
