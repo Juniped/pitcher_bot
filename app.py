@@ -59,7 +59,7 @@ async def on_message(message):
                 if current_info[message.author.id]['awaiting_guess']:
                     guess = content[5:].strip()
                     guess_int = int(guess)
-                    pitch = current_info[message.author.id]['last_pitch']
+                    pitch = current_info[message.author.id]['last_pitch'].split(" ")[0]
                     pitch_int = int(pitch)
                     diff = abs(pitch_int - guess_int)
                     if abs(diff) > 500:
@@ -114,7 +114,7 @@ def select_pitches(pitches):
     # print(game_list)
     start_value = random.randint(0,len(game_list) - 6)
     plist = game_list[start_value:start_value + 5]
-    last_pitch = game_list[start_value + 6]
+    last_pitch = game_list[start_value + 6].split(" ")[0]
     return {'plist':plist, 'last_pitch':last_pitch}
         
 print("Starting Application")
