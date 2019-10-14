@@ -2,8 +2,8 @@ import re, os, time, sys, datetime, json, asyncio, random
 import discord
 import requests
 
-with open("config.json","r") as config_file:
-    config = json.load(config_file)
+token = os.environ['TOKEN']
+api_url = os.environ['API_URL']
 client = discord.Client()
 current_pitcher = ""
 current_pitcher_id = ""
@@ -69,14 +69,14 @@ async def on_message(message):
                 await message.channel.send(f"{message.author.name}\nNot currently waiting for you to guess, please use .pitch to start the process")
 
 def search_pitchers(pitcher_string):
-    search_url = f"{config['fakebaseball_url']}/api/v1/players/search"
+    search_url = f"{api_url}/api/v1/players/search"
     params = {"query": pitcher_string}
     r = requests.get(search_url, params=params)
     json_results = r.json()
     return json_results
         
 def get_pitches(id):
-    url = f"{config['fakebaseball_url']}/api/v1/players/{id}/plays/pitching"
+    url = f"{api_url}/api/v1/players/{id}/plays/pitching"
     r = requests.get(url)
     return r.json()
 
@@ -104,4 +104,4 @@ def select_pitches(pitches):
     last_pitch = game_list[start_value + 6]
     return {'plist':plist, 'last_pitch':last_pitch}
         
-client.run(config['token'])
+client.run(token)
