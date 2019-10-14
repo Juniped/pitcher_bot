@@ -78,8 +78,8 @@ async def on_message(message):
                     f".swing <swing> guess a number after getting a list of pitches"
                 )
                 await message.channel.send(string)
-        except Exception as e:
-            print(e)
+    except Exception as e:
+        print(e)
 
 def search_pitchers(pitcher_string):
     search_url = f"{api_url}/api/v1/players/search"
