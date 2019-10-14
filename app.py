@@ -37,9 +37,9 @@ async def on_message(message):
                         current_info[message.author.id] = {}
                     current_info[message.author.id]['current_pitcher'] = player
                     current_info[message.author.id]['current_pitcher_id'] = player['id']
-                    await message.channel.send(f"<@ {message.author.id}> Current Pitcher set to {current_info[message.author.id]['current_pitcher']['name']}")
+                    await message.channel.send(f"<@{message.author.id}> Current Pitcher set to {current_info[message.author.id]['current_pitcher']['name']}")
             elif content.startswith("current"): # Get Current Pitcher
-                await message.channel.send(f"<@ {message.author.id}> Current Pitcher is {current_info[message.author.id]['current_pitcher']['name']}")
+                await message.channel.send(f"<@{message.author.id}> Current Pitcher is {current_info[message.author.id]['current_pitcher']['name']}")
             elif content.startswith("pitch"):
                 pitches = get_pitches(current_info[message.author.id]['current_pitcher_id'])
                 if len(pitches) < 5:
@@ -50,7 +50,7 @@ async def on_message(message):
                     current_info[message.author.id]['plist'] = selected['plist']
 
                     await message.channel.send(
-                        f"<@ {message.author.id}>\nLast Pitches:\n" + "\n".join([p for p in selected['plist']]) 
+                        f"<@{message.author.id}>\nLast Pitches:\n" + "\n".join([p for p in selected['plist']]) 
                     )
                     current_info[message.author.id]['awaiting_guess'] = True
             elif content.startswith("swing"):
@@ -64,12 +64,12 @@ async def on_message(message):
                     diff = abs(pitch_int - guess_int)
                     if abs(diff) > 500:
                         diff = 1000 - abs(diff)
-                    await message.channel.send(f"<@ {message.author.id}>\nSwing: {guess}\nPitch: {pitch}\nDifference:{diff}")
+                    await message.channel.send(f"<@{message.author.id}>\nSwing: {guess}\nPitch: {pitch}\nDifference:{diff}")
                     current_info[message.author.id]['awaiting_guess'] = False
                     current_info[message.author.id]['last_pitch'] = ""
                     current_info[message.author.id]['plist'] = []
                 else:
-                    await message.channel.send(f"<@ {message.author.id}>\nNot currently waiting for you to guess, please use .pitch to start the process")
+                    await message.channel.send(f"<@{message.author.id}>\nNot currently waiting for you to guess, please use .pitch to start the process")
             elif content.startswith("help"):
                 string = (
                     f".help Generates this help message\n"
