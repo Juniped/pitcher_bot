@@ -72,9 +72,9 @@ async def on_message(message):
                     await message.channel.send(f"{message.author}\nNot currently waiting for you to guess, please use .pitch to start the process")
             elif content.startswith("help"):
                 string = (
-                    f".help Generates this help message"
-                    f".pitcher <pitcher name> sets the current pitcher you are hitting against"
-                    f".pitch gets a list of pitches and sets up for the swing"
+                    f".help Generates this help message\n"
+                    f".pitcher <pitcher name> sets the current pitcher you are hitting against\n"
+                    f".pitch gets a list of pitches and sets up for the swing\n"
                     f".swing <swing> guess a number after getting a list of pitches"
                 )
                 await message.channel.send(string)
