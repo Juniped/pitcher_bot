@@ -98,9 +98,9 @@ def select_pitches(pitches):
     for pitch in pitches:
         if pitch['pitch'] is not None:
             if pitch['game']['id'] in games.keys():
-                games[pitch['game']['id']].append(f"{pitch['pitch']} -> {pitch['result']}")
+                games[pitch['game']['id']].append(f"{pitch['pitch']}| Diff: {pitch['diff']}-> {pitch['result']}")
             else:
-                games[pitch['game']['id']] = [f"{pitch['pitch']} -> {pitch['result']}",]
+                games[pitch['game']['id']] = [f"{pitch['pitch']}| Diff: {pitch['diff']}-> {pitch['result']}",]
     # Pick a game
     # print(games)
     # print(pitches)
