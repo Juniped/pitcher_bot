@@ -115,7 +115,7 @@ def select_pitches(pitches):
     start_value = random.randint(0,len(game_list) - 6)
     print(game_list[start_value:start_value + 6])
     plist = game_list[start_value:start_value + 5]
-    last_pitch = game_list[start_value + 6].split("|")[0]
+    last_pitch = game_list[start_value + 5].split("|")[0]
     return {'plist':plist, 'last_pitch':last_pitch}
         
 print("Starting Application")
