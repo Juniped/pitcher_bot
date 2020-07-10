@@ -1,9 +1,9 @@
 import re, os, time, sys, datetime, json, asyncio, random
 import discord
 import requests
-
-token = os.environ['TOKEN']
-api_url = os.environ['API_URL']
+from config import Config
+token = Config.token
+api_url = Config.api_url
 client = discord.Client()
 current_pitcher = ""
 current_pitcher_id = ""
@@ -113,6 +113,7 @@ def select_pitches(pitches):
         return {'plist':plist, 'last_pitch':last_pitch}
     # print(game_list)
     start_value = random.randint(0,len(game_list) - 6)
+    print(game_list[start_value:start_value + 6])
     plist = game_list[start_value:start_value + 5]
     last_pitch = game_list[start_value + 6].split("|")[0]
     return {'plist':plist, 'last_pitch':last_pitch}
