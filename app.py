@@ -113,7 +113,7 @@ def select_pitches(pitches):
         return {'plist':plist, 'last_pitch':last_pitch}
     # print(game_list)
     start_value = random.randint(0,len(game_list) - 6)
-    print(game_list[start_value:start_value + 6])
+    print(game_list[start_value:start_value + 7])
     plist = game_list[start_value:start_value + 5]
     last_pitch = game_list[start_value + 5].split("|")[0]
     return {'plist':plist, 'last_pitch':last_pitch}
